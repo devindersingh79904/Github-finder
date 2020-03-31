@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navbar from './Component/Layout/Navbar';
-import UserItem from './Component/users/UserItem';
+// import UserItem from './Component/users/UserItem';
+import Users from './Component/users/Users';
 
 class App extends Component {
   render() {
@@ -17,7 +18,10 @@ class App extends Component {
     return (
       <div className='App'>
         <Navbar />
-        <UserItem />
+        {/* <UserItem /> */}
+        <div className='container'>
+          <Users />
+        </div>
 
         {/* <h1>my App</h1> */}
 
