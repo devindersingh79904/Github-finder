@@ -3,29 +3,31 @@ import './App.css';
 import Navbar from './Component/Layout/Navbar';
 // import UserItem from './Component/users/UserItem';
 import Users from './Component/users/Users';
+import axios from 'axios';
 
 class App extends Component {
-  render() {
-    // for user expresion use { }
-    // condtional
-    // var name = 'devinder';
-    // const loading = false;
-    // const showName = true;
-    // if (loading) {
-    //   return <h3> loading......</h3>;
-    // }
+  state = {
+    users: [],
+    loading: false
+  };
+  async componentDidMount() {
+    this.setState({ loading: true });
+    const res = await axios.get(
+      `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
 
+    this.setState({ users: res.data, loading: false });
+
+    this.state.users = res.data;
+  }
+
+  render() {
     return (
       <div className='App'>
         <Navbar />
-        {/* <UserItem /> */}
         <div className='container'>
-          <Users />
+          <Users loading={this.state.loading} users={this.state.users} />
         </div>
-
-        {/* <h1>my App</h1> */}
-
-        {/* {loading ? <h4>loading......</h4> : <h2>hello {showName && name}</h2>} */}
       </div>
     );
   }
