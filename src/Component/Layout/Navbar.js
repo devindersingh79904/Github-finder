@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ icon, title }) => {
   return (
@@ -8,6 +9,15 @@ const Navbar = ({ icon, title }) => {
         <i className={icon} />
         {title}
       </h1>
+
+      <ul>
+        <li>
+          <Link to='/'>home</Link>
+        </li>
+        <li>
+          <Link to='/about'>about</Link>
+        </li>
+      </ul>
     </nav>
   );
 };
@@ -21,4 +31,5 @@ Navbar.defaultProps = {
   title: 'Github Finder',
   icon: 'fab fa-github'
 };
+
 export default Navbar;
