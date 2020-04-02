@@ -6,7 +6,7 @@ const Repos = ({ repos }) => {
   return (
     <div>
       {repos.map(repo => (
-        <RepoItem repo={repo} />
+        <RepoItem key={repo.id} repo={repo} />
       ))}
     </div>
   );
