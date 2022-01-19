@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-export { default as TodaysDate } from './TodaysDate';
+module.exports = require('./TodaysDate.js')
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <TodaysDate />
   </React.StrictMode>,
   document.getElementById('root')
 );
