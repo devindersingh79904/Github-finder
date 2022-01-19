@@ -1,4 +1,4 @@
 import React from "react";
 const TodaysDate = () => 
-  <div>{`Today's date is ${Date()}`}</div>;
+  <div>Sample</div>;
 export default TodaysDate;
